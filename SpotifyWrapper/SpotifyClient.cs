@@ -22,7 +22,7 @@ namespace SpotifyWrapper
         {
             var request = new RestRequest(spotifyConfiguration.AuthorizeUrl, Method.GET);
             request.AddQueryParameter("client_id", spotifyConfiguration.ClientId);
-            request.AddQueryParameter("response_type", "token");
+            request.AddQueryParameter("response_type", "code");
             request.AddQueryParameter("redirect_uri", spotifyConfiguration.RedirectUri);
             
             return restClient.BuildUri(request).AbsoluteUri;

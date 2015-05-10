@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Configuration\ISpotifyConfiguration.cs" />
     <Compile Include="Configuration\SpotifyConfiguration.cs" />
-    <Compile Include="SpotifyLegacyClient.cs" />
     <Compile Include="SpotifyClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

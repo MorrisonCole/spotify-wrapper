@@ -37,7 +37,7 @@ namespace SpotifyWrapper.Tests
                     new Parameter
                     {
                         Name = "response_type",
-                        Value = "token"
+                        Value = "code"
                     },
                     new Parameter
                     {
