@@ -1,4 +1,8 @@
-﻿using RestSharp;
+﻿using System;
+using System.Diagnostics;
+using System.Net;
+using System.Threading;
+using RestSharp;
 using SpotifyWrapper.Configuration;
 
 namespace SpotifyWrapper
@@ -14,14 +18,14 @@ namespace SpotifyWrapper
             this.spotifyConfiguration = spotifyConfiguration;
         }
 
-        public void Authenticate()
+        public string GetAuthenticationUrl()
         {
-            var request = new RestRequest(spotifyConfiguration.GetAuthorizeUrl(), Method.GET);
-            request.AddQueryParameter("client_id", spotifyConfiguration.GetClientId());
+            var request = new RestRequest(spotifyConfiguration.AuthorizeUrl, Method.GET);
+            request.AddQueryParameter("client_id", spotifyConfiguration.ClientId);
             request.AddQueryParameter("response_type", "token");
-            request.AddQueryParameter("redirect_uri", spotifyConfiguration.GetRedirectUri());
-
-            var response = restClient.Execute(request);
+            request.AddQueryParameter("redirect_uri", spotifyConfiguration.RedirectUri);
+            
+            return restClient.BuildUri(request).AbsoluteUri;
         }
     }
 }

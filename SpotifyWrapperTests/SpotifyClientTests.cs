@@ -13,16 +13,16 @@ namespace SpotifyWrapper.Tests
         private const string AuthorizeUrl = "http://authorize.url";
         private const string ClientId = "a_client_id";
         private const string RedirectUri = "a://redirect.uri";
+        private const string AuthenticationUrl = "http://authentication.uri/";
+
         private readonly Mock<IRestClient> mockRestClient = new Mock<IRestClient>();
         private readonly ISpotifyConfiguration configuration = new StubSpotifyConfiguration(AuthorizeUrl, ClientId, RedirectUri);
 
         [Test]
-        public void Authenticates()
+        public void GetsAuthenticationUrl()
         {
             var spotifyClient = new SpotifyClient(mockRestClient.Object, configuration);
-
-            spotifyClient.Authenticate();
-
+            
             var expectedRestRequest = new RestRequest
             {
                 Resource = AuthorizeUrl,
@@ -47,7 +47,14 @@ namespace SpotifyWrapper.Tests
                 }
             };
 
-            mockRestClient.Verify(restClient => restClient.Execute(It.Is<IRestRequest>(actualRestRequest => MatchingRestRequest(actualRestRequest, expectedRestRequest))));
+            mockRestClient.Setup(
+                client =>
+                    client.BuildUri(
+                        It.Is<IRestRequest>(
+                            actualRestRequest => MatchingRestRequest(actualRestRequest, expectedRestRequest))))
+                .Returns(new Uri(AuthenticationUrl));
+
+            Assert.AreEqual(spotifyClient.GetAuthenticationUrl(), AuthenticationUrl);
         }
 
         private static bool MatchingRestRequest(IRestRequest actual, IRestRequest expected)

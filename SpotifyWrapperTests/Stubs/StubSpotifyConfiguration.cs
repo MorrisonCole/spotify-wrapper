@@ -15,19 +15,19 @@ namespace SpotifyWrapper.Tests.Stubs
             this.redirectUri = redirectUri;
         }
 
-        public string GetAuthorizeUrl()
+        public string AuthorizeUrl
         {
-            return authorizeUrl;
+            get { return authorizeUrl; }
         }
 
-        public string GetClientId()
+        public string ClientId
         {
-            return clientId;
+            get { return clientId; }
         }
 
-        public string GetRedirectUri()
+        public string RedirectUri
         {
-            return redirectUri;
+            get { return redirectUri; }
         }
     }
 }

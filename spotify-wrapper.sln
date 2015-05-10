@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyWrapper", "SpotifyWr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyWrapperTests", "SpotifyWrapperTests\SpotifyWrapperTests.csproj", "{8884C860-64BA-4672-93AA-DA5602262455}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleSpotifyWrapperClient", "ExampleSpotifyWrapperClient\ExampleSpotifyWrapperClient.csproj", "{52FACBAD-DF18-4FCF-A892-6ED0FD59E79D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8884C860-64BA-4672-93AA-DA5602262455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8884C860-64BA-4672-93AA-DA5602262455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8884C860-64BA-4672-93AA-DA5602262455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52FACBAD-DF18-4FCF-A892-6ED0FD59E79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52FACBAD-DF18-4FCF-A892-6ED0FD59E79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52FACBAD-DF18-4FCF-A892-6ED0FD59E79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52FACBAD-DF18-4FCF-A892-6ED0FD59E79D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

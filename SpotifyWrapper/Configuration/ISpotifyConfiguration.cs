@@ -2,8 +2,8 @@
 {
     public interface ISpotifyConfiguration
     {
-        string GetAuthorizeUrl();
-        string GetClientId();
-        string GetRedirectUri();
+        string AuthorizeUrl { get; }
+        string ClientId { get; }
+        string RedirectUri { get; }
     }
 }

@@ -2,19 +2,15 @@
 {
     public class SpotifyConfiguration : ISpotifyConfiguration
     {
-        public string GetAuthorizeUrl()
+        public SpotifyConfiguration(string redirectUri)
         {
-            return "https://accounts.spotify.com/authorize";
+            RedirectUri = redirectUri;
         }
 
-        public string GetClientId()
-        {
-            return "253269f512e245f196f62502f5e13911";
-        }
+        public string AuthorizeUrl => "authorize";
 
-        public string GetRedirectUri()
-        {
-            return "localhost:8080";
-        }
+        public string ClientId => "253269f512e245f196f62502f5e13911";
+
+        public string RedirectUri { get; }
     }
 }
