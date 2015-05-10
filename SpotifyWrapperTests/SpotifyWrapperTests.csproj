@@ -73,7 +73,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\spotify-wrapper\SpotifyWrapper.csproj">
+    <ProjectReference Include="..\SpotifyWrapper\SpotifyWrapper.csproj">
       <Project>{e9f1a3e3-23b7-4aca-9609-0d365210fcfb}</Project>
       <Name>SpotifyWrapper</Name>
     </ProjectReference>

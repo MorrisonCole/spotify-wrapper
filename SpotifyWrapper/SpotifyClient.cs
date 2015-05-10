@@ -17,6 +17,9 @@ namespace SpotifyWrapper
         public void Authenticate()
         {
             var request = new RestRequest(spotifyConfiguration.GetAuthorizeUrl(), Method.GET);
+            request.AddQueryParameter("client_id", spotifyConfiguration.GetClientId());
+            request.AddQueryParameter("response_type", "token");
+            request.AddQueryParameter("redirect_uri", spotifyConfiguration.GetRedirectUri());
 
             var response = restClient.Execute(request);
         }
