@@ -29,5 +29,7 @@ namespace SpotifyWrapper.Tests.Stubs
         {
             get { return redirectUri; }
         }
+
+        public string ClientSecret { get; set; }
     }
 }

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 
 namespace ExampleSpotifyWrapperClient
 {
-    internal class SimpleHttpServer
+    internal class SpotifyCodeReceiverHttpListener
     {
         private static string code;
         private readonly HttpListener httpListener;
 
-        public SimpleHttpServer(string url)
+        public SpotifyCodeReceiverHttpListener(string url)
         {
             httpListener = new HttpListener();
             httpListener.Prefixes.Add(url);
@@ -28,11 +27,6 @@ namespace ExampleSpotifyWrapperClient
 
             httpListener.Stop();
             return code;
-        }
-
-        public void Stop()
-        {
-            httpListener.Stop();
         }
     }
 }
