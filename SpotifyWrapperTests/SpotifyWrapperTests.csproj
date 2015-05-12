@@ -65,7 +65,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="SpotifyClientTests.cs" />
+    <Compile Include="SpotifyAuthenticationClientTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\StubSpotifyConfiguration.cs" />
   </ItemGroup>

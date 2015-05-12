@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using SpotifyWrapper;
 using SpotifyWrapper.Configuration;
+using SpotifyWrapper.Model.Server;
 
 namespace ExampleSpotifyWrapperClient
 {
@@ -14,14 +15,14 @@ namespace ExampleSpotifyWrapperClient
         private static void Main()
         {
             var spotifyConfiguration = new SpotifyConfiguration(LocalHostUrl + "spotify-callback");
-            var spotifyClient = SpotifyClientInjector.SpotifyClient(spotifyConfiguration);
+            var spotifyAuthenticationClient = SpotifyClientInjector.SpotifyAuthenticationClient(spotifyConfiguration);
 
             var backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += RetrieveSpotifyCode;
             backgroundWorker.RunWorkerCompleted += OnSpotifyCodeRetrieved;
             backgroundWorker.RunWorkerAsync();
 
-            Process.Start(spotifyClient.GetAuthenticationUrl());
+            Process.Start(spotifyAuthenticationClient.GetAuthenticationUrl());
 
             var counter = 0;
             Console.Write("Awaiting auth code ");
@@ -48,6 +49,13 @@ namespace ExampleSpotifyWrapperClient
             }
 
             Console.WriteLine($"\nGot auth code: {code}");
+
+            var spotifyCode = spotifyAuthenticationClient.GetToken(code);
+
+            var spotifyApiClient = SpotifyClientInjector.SpotifyApiClient(spotifyCode);
+            var spotifyTrack = spotifyApiClient.GetTrack("2dLQO5zSiudyseIzh5VXI7");
+
+            Console.WriteLine(spotifyTrack.PreviewUrl);
             Console.In.Read();
         }
 

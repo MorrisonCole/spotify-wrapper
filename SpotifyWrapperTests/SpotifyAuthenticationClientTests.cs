@@ -8,7 +8,7 @@ using SpotifyWrapper.Tests.Stubs;
 namespace SpotifyWrapper.Tests
 {
     [TestFixture]
-    public class SpotifyClientTests
+    public class SpotifyAuthenticationClientTests
     {
         private const string AuthorizeUrl = "http://authorize.url";
         private const string ClientId = "a_client_id";
@@ -21,7 +21,7 @@ namespace SpotifyWrapper.Tests
         [Test]
         public void GetsAuthenticationUrl()
         {
-            var spotifyClient = new SpotifyClient(mockRestClient.Object, configuration);
+            var spotifyClient = new SpotifyAuthenticationClient(mockRestClient.Object, configuration);
             
             var expectedRestRequest = new RestRequest
             {

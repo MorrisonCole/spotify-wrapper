@@ -6,5 +6,6 @@
         string ClientId { get; }
         string RedirectUri { get; }
         string ClientSecret { get; }
+        string TokenUrl { get; }
     }
 }

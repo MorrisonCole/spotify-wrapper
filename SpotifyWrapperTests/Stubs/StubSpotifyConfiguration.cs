@@ -31,5 +31,6 @@ namespace SpotifyWrapper.Tests.Stubs
         }
 
         public string ClientSecret { get; set; }
+        public string TokenUrl { get; }
     }
 }
