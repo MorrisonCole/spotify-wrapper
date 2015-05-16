@@ -13,7 +13,12 @@ namespace SpotifyWrapper
 
         public static SpotifyApiClient SpotifyApiClient(SpotifyCode spotifyCode)
         {
-            return new SpotifyApiClient(new RestClient("https://api.spotify.com/v1"), new SpotifyApiConfiguration(spotifyCode));
+            var restClient = new RestClient("https://api.spotify.com/v1")
+            {
+                Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(spotifyCode.AccessToken, spotifyCode.TokenType)
+            };
+
+            return new SpotifyApiClient(restClient, new SpotifyApiConfiguration(spotifyCode.AccessToken));
         }
     }
 }

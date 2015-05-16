@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using RestSharp;
+﻿using RestSharp;
 using SpotifyWrapper.Configuration;
 using SpotifyWrapper.Model.Server;
 
@@ -20,6 +18,8 @@ namespace SpotifyWrapper
         public SpotifyTrack GetTrack(string trackId)
         {
             var request = new RestRequest($"{spotifyApiConfiguration.TrackUrl}/{trackId}", Method.GET);
+//            request.AddHeader("Accept", "application/json");
+//            request.AddHeader("Content Type", "application/json");
 
             return restClient.Execute<SpotifyTrack>(request).Data;
         }
